@@ -3,19 +3,17 @@ import random
 
 def get_numbers_ticket(min, max, quantity):
 
-    if min<1 or max>1000 or quantity !=6:
+    if min < 1 or max > 1000 or min >= max or quantity < 1 or quantity > (max - min + 1):
         return []
     
-    else:
-        tickets = set()
+    tickets = set()
     while len(tickets) < quantity:
-        i = random.randint(min, max)
-        tickets.add(i)
+        tickets.add(random.randint(min, max))
     return sorted(tickets)
 
-ticket_numbers=get_numbers_ticket(1,1000,6)
+ticket_numbers=get_numbers_ticket(1,1000,5)
 
-print(ticket_numbers)
+print("Generated ticket numbers:", ticket_numbers)
 
 
 
